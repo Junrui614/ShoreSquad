@@ -1,4 +1,4 @@
-# Live Server settings for VS Code
+//  Live Server settings for VS Code
 {
     "liveServer.settings.port": 5500,
     "liveServer.settings.root": "/",

@@ -3,28 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShoreSquad</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>ShoreSquad Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body>
-    <header>
-        <h1>ShoreSquad</h1>
-        <p>Rally your crew, track weather, and hit the next beach cleanup!</p>
-    </header>
-    <main>
-        <section id="map">
-            <!-- Map will be rendered here -->
-        </section>
-        <section id="weather">
-            <!-- Weather info will be shown here -->
-        </section>
-        <section id="crew">
-            <!-- Social/crew features will be here -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 ShoreSquad. All rights reserved.</p>
+<body class="bg-gradient-to-br from-blue-200 via-blue-100 to-teal-100 min-h-screen flex flex-col">
+    <!-- Top Navigation Bar -->
+    <nav class="flex items-center justify-between px-8 py-6 bg-white shadow-md sticky top-0 z-10 text-lg md:text-xl">
+        <span class="text-3xl font-extrabold text-blue-600">ShoreSquad</span>
+        <ul class="flex space-x-10 font-bold">
+            <li><a href="#" class="nav-link text-2xl px-3 py-2 rounded-lg transition-colors duration-150 text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-blue-100 active:bg-blue-200">Home</a></li>
+            <li><a href="#" class="nav-link text-2xl px-3 py-2 rounded-lg transition-colors duration-150 text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-blue-100 active:bg-blue-200">Events</a></li>
+            <li><a href="#" class="nav-link text-2xl px-3 py-2 rounded-lg transition-colors duration-150 text-blue-600 border-b-2 border-blue-600 pb-1 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-blue-100 active:bg-blue-200">Map</a></li>
+            <li><a href="#" class="nav-link text-2xl px-3 py-2 rounded-lg transition-colors duration-150 text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-blue-100 active:bg-blue-200">My Crew</a></li>
+        </ul>
+    </nav>
+
+    <!-- Beach Hero Image with Overlay Text -->
+    <div class="relative w-full h-[40vh] min-h-60 max-h-96 flex items-center justify-center mb-8">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Beach" class="absolute inset-0 w-full h-full object-cover object-center" />
+        <div class="relative z-10 flex flex-col items-center justify-center w-full h-full bg-black/30">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg text-center">Pristine Beaches, Cleaner Future</h1>
+            <p class="mt-4 text-lg md:text-2xl text-white font-medium drop-shadow text-center">Join us in preserving Singapore's beautiful coastlines</p>
+        </div>
+    </div>
+
+    <!-- Statistic Cards -->
+    <section class="w-full flex justify-center mt-6 px-4">
+        <div class="flex flex-col md:flex-row gap-8 w-full" style="max-width:66.6667vw;">
+            <div class="flex-1 bg-white rounded-xl shadow p-10 flex flex-col items-center gap-4 aspect-square min-w-[180px] max-w-[320px] mx-auto text-3xl">
+                <div class="bg-blue-100 text-blue-600 rounded-full p-6 text-5xl mb-2"><i class="fas fa-trash"></i></div>
+                <div class="text-3xl font-extrabold">2500</div>
+                <div class="text-gray-500 text-lg font-semibold">Pounds Collected</div>
+            </div>
+            <div class="flex-1 bg-white rounded-xl shadow p-10 flex flex-col items-center gap-4 aspect-square min-w-[180px] max-w-[320px] mx-auto text-3xl">
+                <div class="bg-yellow-100 text-yellow-600 rounded-full p-6 text-5xl mb-2"><i class="fas fa-location-dot"></i></div>
+                <div class="text-3xl font-extrabold">45</div>
+                <div class="text-gray-500 text-lg font-semibold">Beaches Cleaned</div>
+            </div>
+            <div class="flex-1 bg-white rounded-xl shadow p-10 flex flex-col items-center gap-4 aspect-square min-w-[180px] max-w-[320px] mx-auto text-3xl">
+                <div class="bg-green-100 text-green-600 rounded-full p-6 text-5xl mb-2"><i class="fas fa-users"></i></div>
+                <div class="text-3xl font-extrabold">350</div>
+                <div class="text-gray-500 text-lg font-semibold">Squad Members</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Cleanups -->
+    <section class="mt-20 px-4 flex-1 w-full flex flex-col items-center mb-8">
+        <div class="flex flex-col items-center mb-2">
+            <span class="text-blue-900 text-6xl mb-2"><i class="fas fa-water"></i></span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-blue-900 text-center">Upcoming Cleanups</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3 w-full max-w-6xl justify-items-stretch" style="max-width:80vw;">
+            <!-- Event Card 1 -->
+            <div class="bg-white rounded-xl shadow p-8 flex flex-col gap-4 w-full h-full text-3xl">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold">Jun 1</div>
+                    <div class="font-semibold text-lg">Santa Monica Beach Cleanup</div>
+                </div>
+                <div class="flex items-center text-gray-500 gap-2 text-sm">
+                    <i class="fas fa-location-dot"></i> Santa Monica, CA
+                </div>
+                <div class="flex items-center text-gray-500 gap-2 text-sm">
+                    <i class="fas fa-clock"></i> 9:00 AM - 12:00 PM
+                </div>
+                <div class="flex items-center gap-2 mt-2">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2 first:ml-0" alt="avatar">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2" alt="avatar">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2" alt="avatar">
+                    <span class="ml-2 text-gray-600 text-sm">12 members</span>
+                </div>
+                <button class="mt-3 bg-blue-600 text-white rounded-lg px-4 py-2 font-semibold hover:bg-blue-700 transition">Join Squad</button>
+            </div>
+            <!-- Event Card 2 -->
+            <div class="bg-white rounded-xl shadow p-8 flex flex-col gap-4 w-full h-full text-3xl">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold">Jun 8</div>
+                    <div class="font-semibold text-lg">Venice Beach Cleanup</div>
+                </div>
+                <div class="flex items-center text-gray-500 gap-2 text-sm">
+                    <i class="fas fa-location-dot"></i> Venice, CA
+                </div>
+                <div class="flex items-center text-gray-500 gap-2 text-sm">
+                    <i class="fas fa-clock"></i> 10:00 AM - 1:00 PM
+                </div>
+                <div class="flex items-center gap-2 mt-2">
+                    <img src="https://randomuser.me/api/portraits/women/55.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2 first:ml-0" alt="avatar">
+                    <img src="https://randomuser.me/api/portraits/men/66.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2" alt="avatar">
+                    <img src="https://randomuser.me/api/portraits/women/77.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2" alt="avatar">
+                    <span class="ml-2 text-gray-600 text-sm">8 members</span>
+                </div>
+                <button class="mt-3 bg-blue-600 text-white rounded-lg px-4 py-2 font-semibold hover:bg-blue-700 transition">Join Squad</button>
+            </div>
+            <!-- Event Card 3 -->
+            <div class="bg-white rounded-xl shadow p-8 flex flex-col gap-4 w-full h-full text-3xl">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold">Jun 15</div>
+                    <div class="font-semibold text-lg">Laguna Beach Cleanup</div>
+                </div>
+                <div class="flex items-center text-gray-500 gap-2 text-sm">
+                    <i class="fas fa-location-dot"></i> Laguna Beach, CA
+                </div>
+                <div class="flex items-center text-gray-500 gap-2 text-sm">
+                    <i class="fas fa-clock"></i> 8:00 AM - 11:00 AM
+                </div>
+                <div class="flex items-center gap-2 mt-2">
+                    <img src="https://randomuser.me/api/portraits/men/88.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2 first:ml-0" alt="avatar">
+                    <img src="https://randomuser.me/api/portraits/women/99.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2" alt="avatar">
+                    <img src="https://randomuser.me/api/portraits/men/11.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-2" alt="avatar">
+                    <span class="ml-2 text-gray-600 text-sm">15 members</span>
+                </div>
+                <button class="mt-3 bg-blue-600 text-white rounded-lg px-4 py-2 font-semibold hover:bg-blue-700 transition">Join Squad</button>
+            </div>
+        </div>
+    </section>
+    <!-- Find Your Beach Section -->
+    <section class="w-full flex flex-col items-center mt-16 mb-8 px-4">
+        <div class="flex flex-col items-center mb-2">
+            <span class="text-blue-900 text-6xl mb-2"><i class="fas fa-water"></i></span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-blue-900 text-center">Find your beach</h2>
+        </div>
+        <div class="w-full flex justify-center">
+            <div class="w-full" style="max-width:80vw;">
+                <div class="h-[80vh] rounded-2xl overflow-hidden shadow-lg">
+                    <iframe
+                        src="https://www.google.com/maps?q=1.381497,103.955574&hl=en&z=16&output=embed&q=Next+Cleanup@1.381497,103.955574"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Next Cleanup at Pasir Ris"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Dashboard Section -->
+    <section class="w-full flex flex-col items-center mt-12 mb-8 px-2 sm:px-4">
+      <div class="flex flex-col md:flex-row gap-8 w-full justify-center">
+        <div class="flex flex-col md:flex-row gap-8 w-full" style="max-width:80vw;">
+          <!-- Today's Weather Card -->
+          <div class="flex-1 bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-12 flex flex-col relative min-w-[220px] max-w-[80vw] text-xl sm:text-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-3xl font-bold text-blue-900">Today's Weather</h3>
+            <i class="fas fa-cloud-showers-heavy text-blue-500 text-4xl"></i>
+          </div>
+          <div class="text-xl text-blue-700 mb-2">Thundery Showers</div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-6xl font-extrabold text-blue-900">30°C</span>
+          </div>
+          <div class="bg-red-100 text-red-700 rounded-lg px-4 py-2 mb-4 text-lg font-semibold flex items-center gap-2">
+            <span>⚠️ Consider rescheduling – rain expected</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mb-2">
+            <div class="bg-white/80 rounded-lg p-3 text-center">
+              <div class="text-xs text-gray-500">High / Low</div>
+              <div class="font-bold text-blue-900">34°/25°C</div>
+            </div>
+            <div class="bg-white/80 rounded-lg p-3 text-center">
+              <div class="text-xs text-gray-500">Humidity</div>
+              <div class="font-bold text-blue-900">55–95%</div>
+            </div>
+            <div class="bg-white/80 rounded-lg p-3 text-center">
+              <div class="text-xs text-gray-500">Wind</div>
+              <div class="font-bold text-blue-900">SSW</div>
+            </div>
+            <div class="bg-white/80 rounded-lg p-3 text-center">
+              <div class="text-xs text-gray-500">Updated</div>
+              <div class="font-bold text-blue-900">09:09 am</div>
+            </div>
+          </div>
+        </div>
+          <!-- 4-Day Forecast Section -->
+          <div class="flex-1 bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-12 flex flex-col min-w-[220px] max-w-[80vw] text-xl sm:text-2xl">
+          <h3 class="text-xl sm:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2">🌤️ 4-Day Forecast</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
+            <!-- Day 1 -->
+            <div class="bg-white rounded-xl p-8 flex flex-col items-center shadow-lg w-full">
+              <div class="font-bold text-blue-800">Tomorrow</div>
+              <i class="fas fa-cloud-showers-heavy text-blue-400 text-4xl my-2"></i>
+              <div class="font-bold text-blue-900">33° / 24°</div>
+              <div class="text-lg text-blue-700 text-center">Morning thundery showers</div>
+              <div class="text-base text-gray-500">55–95% humidity</div>
+            </div>
+            <!-- Day 2 -->
+            <div class="bg-white rounded-xl p-8 flex flex-col items-center shadow-lg w-full">
+              <div class="font-bold text-blue-800">Sat, 7 Jun</div>
+              <i class="fas fa-cloud-showers-heavy text-blue-400 text-4xl my-2"></i>
+              <div class="font-bold text-blue-900">32° / 25°</div>
+              <div class="text-lg text-blue-700 text-center">Morning thundery showers</div>
+              <div class="text-base text-gray-500">55–95% humidity</div>
+            </div>
+            <!-- Day 3 -->
+            <div class="bg-white rounded-xl p-8 flex flex-col items-center shadow-lg w-full">
+              <div class="font-bold text-blue-800">Sun, 8 Jun</div>
+              <i class="fas fa-cloud-showers-heavy text-blue-400 text-4xl my-2"></i>
+              <div class="font-bold text-blue-900">31° / 24°</div>
+              <div class="text-lg text-blue-700 text-center">Morning thundery showers</div>
+              <div class="text-base text-gray-500">55–95% humidity</div>
+            </div>
+            <!-- Day 4 -->
+            <div class="bg-white rounded-xl p-8 flex flex-col items-center shadow-lg w-full">
+              <div class="font-bold text-blue-800">Mon, 9 Jun</div>
+              <i class="fas fa-cloud-showers-heavy text-blue-400 text-4xl my-2"></i>
+              <div class="font-bold text-blue-900">32° / 25°</div>
+              <div class="text-lg text-blue-700 text-center">Morning thundery showers</div>
+              <div class="text-base text-gray-500">55–95% humidity</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="w-full flex flex-col items-center mt-12 mb-32 px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center max-w-xl w-full">
+            <h3 class="text-3xl font-bold text-blue-900 mb-4">Find us on</h3>
+            <div class="flex flex-wrap justify-center gap-8 text-5xl">
+                <a href="#" class="text-pink-500 hover:text-pink-700 transition" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="text-gradient-to-r from-pink-500 to-yellow-500 hover:text-yellow-600 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-blue-700 hover:text-blue-900 transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-blue-400 hover:text-blue-600 transition" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-inner flex justify-around items-center py-2 md:hidden z-20">
+        <a href="#" class="flex flex-col items-center text-blue-600"><i class="fas fa-home text-xl"></i><span class="text-xs">Home</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-500"><i class="fas fa-calendar-alt text-xl"></i><span class="text-xs">Events</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-500"><i class="fas fa-map-marked-alt text-xl"></i><span class="text-xs">Map</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-500"><i class="fas fa-users text-xl"></i><span class="text-xs">Squad</span></a>
+    </nav>
+
+    <!-- Footer Navigation Bar -->
+    <footer class="fixed bottom-0 left-0 right-0 bg-white shadow-inner flex justify-around items-center py-3 z-20 text-lg md:text-xl">
+        <a href="#" class="footer-link flex flex-col items-center px-3 py-1 rounded-lg transition-colors duration-150 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:bg-gray-200 active:bg-gray-300">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="footer-link flex flex-col items-center px-3 py-1 rounded-lg transition-colors duration-150 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:bg-gray-200 active:bg-gray-300">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Events</span>
+        </a>
+        <a href="#" class="footer-link flex flex-col items-center px-3 py-1 rounded-lg transition-colors duration-150 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:bg-gray-200 active:bg-gray-300">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Map</span>
+        </a>
+        <a href="#" class="footer-link flex flex-col items-center px-3 py-1 rounded-lg transition-colors duration-150 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:bg-gray-200 active:bg-gray-300">
+            <i class="fas fa-cloud-sun"></i>
+            <span>Weather</span>
+        </a>
+        <a href="#" class="footer-link flex flex-col items-center px-3 py-1 rounded-lg transition-colors duration-150 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:bg-gray-200 active:bg-gray-300">
+            <i class="fas fa-users"></i>
+            <span>Squad</span>
+        </a>
     </footer>
-    <script src="js/app.js"></script>
 </body>
 </html>
